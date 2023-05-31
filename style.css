@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap');
+
+:root{
+    --blue-platzi:rgb(23 42 61);
+    --green-platzi:#a3ca48;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing:border-box;
+    background-color: var(--blue-platzi);
+    font-family: 'Roboto', sans-serif;
+}
+
+#items{
+    width: 700px;
+    margin: 0 auto;
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+
+}
+
+.itemsImg{
+    width: 200px;
+    height: 200px;
+    padding: 10px;
+    border-radius: 50%;
+    border: 1px solid rgb(255, 255, 255);
+    background-color: var(--green-platzi);
+    object-fit: contain;
+}
+
+.container{
+    margin: 100px auto 0  auto;
+    padding-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border: 1px solid white;
+    width: 400px;
+    border-radius: 20px;
+    background-color: var(--green-platzi);
+    color: var(--blue-platzi);
+}
+
+#precio{
+    align-self: center;
+    font-weight:bold;
+}
+
+#calculo{
+    display: flex;
+    flex-direction:column;
+    width:200px;
+}
+
+#calculo div{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    align-self: center;
+}
+
+#cupon{
+    text-align: right;
+    margin: 10px 0;
+    width: 100px;
+    height: 20px;
+    border-radius: 10px;
+    color: var(--blue-platzi);
+    font-weight: bold;
+    align-self: center;
+    text-align: center;
+}
+
+#boton{
+    width: 100px;
+    align-self: center;
+    border-radius: 20px;
+    background-color: var(--blue-platzi);
+    color: white;
+}
+#boton:active{
+    color:var(--blue-platzi);
+    background-color: var(--green-platzi);
+}
+
+#resultado{
+    width: 100%;
+    background: white;
+    margin-top: 20px;
+    text-align: center;
+    border-radius: 0 0 20px 20px;
+    padding: 10px 0;
+}
+
+
