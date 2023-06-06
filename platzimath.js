@@ -19,11 +19,34 @@ function esPar(lista) {
     return !(lista.length % 2);
 }
 
-function esImpar(lista) {
+const PlatziMath = {};
+
+
+PlatziMath.function esImpar(listPlatziMath.a) {
     return lista.length % 2;
 }
 
-function calcularMediana(lista) {
+PlatziMath.function calcularModa(lista) {
+    const listaCount = {};
+    
+    for (let i = 0; i < lista.length; i++) {
+        const elemento = lista[i];
+
+        if (listaCount[elemento]) {
+            listaCount[elemento] += 1
+        } else {
+            listaCount[elemento] = 1;
+        }
+    }
+
+    const listaArray = Object.entries(listaCount);
+    const listaOrdenada = ordenarListaBidimensional(listaArray,1);
+    const moda = listaOrdenada[0][0];
+    
+    return moda; 
+}
+
+PlatziMath.function calcularMediana(lista) {
     lista = ordenarLista(lista);
     const listaEsPar = esPar(lista);
 
@@ -42,8 +65,25 @@ function calcularMediana(lista) {
     }
 }
 
-function ordenarLista(lista) {
+PlatziMath.function ordenarLista(lista) {
     comparar = (a, b) => { return a - b }
     let listaOrdenada = lista.sort(comparar);
     return listaOrdenada;
+}
+
+PlatziMath.function ordenarListaBidimensional(lista,i) {
+    return lista.sort((a, b) => b[i] - a[i])
+}
+
+PlatziMath.function mediaCuadratica(lista) {
+    var listUpTwo = lista.map((x) => x ** 2)
+    console.log(listUpTwo)
+    var sum = listUpTwo.reduce(
+        (sum = 0, newVal)=>{
+            return sum + newVal
+        }
+    )
+    console.log(sum)
+    var result = Math.sqrt(sum / lista.length)
+    return result
 }
