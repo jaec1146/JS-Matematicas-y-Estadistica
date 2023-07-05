@@ -9,6 +9,15 @@ const option_20 = $('#option_20');
 const select = $('.select');
 const labelSpent = $('#labelSpent');
 const amountSpent = $('#amountSpent');
+const acceptSpent = $('#accept');
+
+const ArraySpent = [];
+//object constructor spent
+function Spent(name,cost,portion){
+    this.name = name;
+    this.cost = cost;
+    this.portion = portion;
+}
 
 
 const addSpentForm = ()=> {
@@ -16,7 +25,6 @@ const addSpentForm = ()=> {
     spent.classList.remove('in-active');
     boxAdd.classList.add('active');
 } 
-
 const activeColor = (x) => {
     if (x == '50%') {
         option_50.style.color = "#FFB672";
@@ -36,7 +44,6 @@ const activeColor = (x) => {
     }
     console.log(select.value)
 }
-
 const shadowBoxLabelSpent = () => {
     if (labelSpent.value != '') {
         labelSpent.style.background = '#D9D9D9'
@@ -51,7 +58,16 @@ const shadowBoxAmountSpent = () => {
         amountSpent.style.background = '#fff'
     }
 }
+const agreeSpent = () => {
+    var spent0 = new Spent(labelSpent.value, amountSpent.value, select.value);
+    ArraySpent.push(spent0);
+    console.log(ArraySpent);
+    /*boxAdd.classList.add('in-active');
+    spent.classList.add('in-active');
+    boxAdd.classList.remove('active');*/
+}
 
 addSpent.addEventListener('click', addSpentForm);
 labelSpent.addEventListener('input', shadowBoxLabelSpent);
-amountSpent.addEventListener('input',shadowBoxAmountSpent)
+amountSpent.addEventListener('input', shadowBoxAmountSpent);
+acceptSpent.addEventListener('click', agreeSpent);
