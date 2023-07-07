@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Economic-wallet</title>
     <link rel="stylesheet" href="css/style.css">
+    <!-- icono de basura -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
 <body>
     <div class="box-side">
@@ -23,8 +25,8 @@
             </div>
         </div>
     </div>
-    <div class="box-add in-active">
-        <div class="addSpent in-active">
+    <div class="box-add in-active" onmouseover="outSpentAdd()">
+        <div class="addSpent in-active" >
             <h2>Gasto</h2>
             <form action="">
                 <label for="labelSpent">Etiqueta</label>
@@ -36,11 +38,23 @@
                     <div id="option_30" onclick="activeColor(this.innerText)">30%</div>
                     <div id="option_20" onclick="activeColor(this.innerText)">20%</div>
                 </div>
-                <button id="accept" type="submit">aceptar</button>
             </form>
+            <button id="accept" type="submit">aceptar</button>
+            <p class="error"></p>
         </div>
-        <div class="addIncome in-active"></div>
+        <div class="addIncome in-active">
+            <h2>Gasto</h2>
+            <form action="">
+                <label for="labelIncome">Etiqueta</label>
+                <input type="text" name="labelIncome" id="labelSpent">
+                <label for="amountIncome">Cantidad</label>
+                <input type="number" name="amountIncome" id="amountSpent">
+            </form>
+            <button id="acceptIncome" type="submit">aceptar</button>
+            <p class="errorIncome"></p>
+        </div>
     </div>
-    <script src="js/app.js"></script>
+    <script src="js/spents.js"></script>
+    <script src="js/incomes.js"></script>
 </body>
 </html>
