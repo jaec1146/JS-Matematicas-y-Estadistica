@@ -16,12 +16,20 @@
                 <a>Agregar</a>
                 <span class="symbolPlusSpent symbolPlus">+</span>
             </div>
+            <div class="boxNewsSpent"></div>
+            <div class="totalSpent in-active">
+                <p>Total</p><p class="sumSpent"></p>
+            </div>
         </div>
         <div class="side income">
             <h2>Ingresos</h2>
             <div class="add">
                 <a>Agregar</a>
                 <span class="symbolPlusIncome symbolPlus">+</span>
+            </div>
+            <div class="boxNewsIncome"></div>
+            <div class="totalIncome in-active">
+                <p>Total</p><p class="sumIncome"></p>
             </div>
         </div>
     </div>
@@ -42,13 +50,13 @@
             <button id="accept" type="submit">aceptar</button>
             <p class="error"></p>
         </div>
-        <div class="addIncome in-active">
+        <div class="addIncome in-active" onmouseover="outIncomeAdd()">
             <h2>Gasto</h2>
             <form action="">
                 <label for="labelIncome">Etiqueta</label>
-                <input type="text" name="labelIncome" id="labelSpent">
+                <input type="text" name="labelIncome" id="labelIncome">
                 <label for="amountIncome">Cantidad</label>
-                <input type="number" name="amountIncome" id="amountSpent">
+                <input type="number" name="amountIncome" id="amountIncome">
             </form>
             <button id="acceptIncome" type="submit">aceptar</button>
             <p class="errorIncome"></p>

@@ -1,5 +1,5 @@
 const $ = (selector) => document.querySelector(selector);
-/* Spent*/
+/* Spent DOMs*/
 const addSpent = $('.symbolPlusSpent');
 const boxAdd = $('.box-add');
 const spent = $('.addSpent');
@@ -12,10 +12,10 @@ const amountSpent = $('#amountSpent');
 const acceptSpent = $('#accept');
 const error = $('.error');
 const sideSpent = $('.spent');
+const boxNewsSpent = $('.boxNewsSpent');
 const newSpentP = $('.newSpentP');
-/* Income */
-const addIncome = $('.symbolPlusIncome');
-const income = $('.addIncome'); 
+const totalSpent = $('.totalSpent')
+const sumSpentResult = $('.sumSpent'); 
 
 const ArraySpent = [];
 //object constructor spent
@@ -24,13 +24,32 @@ function Spent(name,cost,portion){
     this.cost = cost;
     this.portion = portion;
 }
+/* Income DOMs*/
+const addIncome = $('.symbolPlusIncome');
+const income = $('.addIncome');
+const labelIncome = $('#labelIncome');
+const errorIncome = $('.errorIncome');
+const amountIncome = $('#amountIncome');
+const acceptIncome = $('#acceptIncome');
+const sideIncome = $('.income');
+const boxNewsIncome = $('.boxNewsIncome');
+const totalIncome = $('.totalIncome');
+const sumIncomeResult = $('.sumIncome');
 
-//Funciones para eventos
+const ArrayIncome = [];
+//object constructor Income
+function Income(name, cost) {
+    this.name = name;
+    this.cost = cost;
+}
+
+//Funciones para eventos Spent
 const addSpentForm = ()=> {
     boxAdd.classList.remove('in-active');
     spent.classList.remove('in-active');
     income.classList.add('in-active');
     boxAdd.classList.add('active');
+    labelSpent.focus();
     
 } 
 const activeColor = (x) => {
@@ -112,10 +131,9 @@ const agreeSpent = () => {
         const symbolDelete = document.createElement('span');
         symbolDelete.classList.add('material-symbols-outlined');
         symbolDelete.innerText = 'delete';
-        const deleteSpent = $('.material-symbols-outlined');
         symbolDelete.setAttribute('onclick', 'deleteBottom(this)');
 
-        sideSpent.append(spentItem);
+        boxNewsSpent.append(spentItem);
         spentItem.append(divParagraph, symbolDelete)
         divParagraph.append(titleSpent, porcentajeLabel, amountSpentLabel);
 
@@ -141,6 +159,11 @@ const agreeSpent = () => {
         select.value = '';
         (option_20 && option_30 && option_50).style.color = "";
 
+        /* show label html Total Spent */
+        totalSpent.classList.remove('in-active');
+
+        sumSpent();
+
         boxAdd.classList.add('in-active');
         spent.classList.add('in-active');
         boxAdd.classList.remove('active');
@@ -148,7 +171,7 @@ const agreeSpent = () => {
     }
 }
 const outSpentAdd = () => {
-    spent.onpointerleave = (event) => {
+    spent.onpointerleave = () => {
         boxAdd.classList.add('in-active');
         spent.classList.add('in-active');
         boxAdd.classList.remove('active');
@@ -156,15 +179,25 @@ const outSpentAdd = () => {
 }
 const deleteBottom = (x) => {
     console.log(ArraySpent);
-    var element = x.parentNode.firstChild.firstChild.innerText;
-    var index = ArraySpent.map(label => label.name).indexOf(element);
+    let element = x.parentNode.firstChild.firstChild.innerText;
+    let index = ArraySpent.map(label => label.name).indexOf(element);
     console.log(index);
     ArraySpent[ArraySpent.splice(index,1)]
     console.log(ArraySpent);
     x.parentNode.remove();
+
+    if (ArraySpent.length == 0) {
+        totalSpent.classList.add('in-active');
+    }
+}
+const sumSpent = () => {
+    let costs = ArraySpent.map(spent => Number(spent.cost));
+    let sum = costs.reduce((a, b) => a + b);
+    
+    sumSpentResult.innerText = '$'+sum;
 }
 
-//Eventos
+//Events
 addSpent.addEventListener('click', addSpentForm);
 labelSpent.addEventListener('input', shadowBoxLabelSpent);
 amountSpent.addEventListener('input', shadowBoxAmountSpent);

@@ -11,24 +11,31 @@ body{
     display: flex;
     justify-content: space-around;
     align-items: start;
-    padding-top: 71px;
-    padding-bottom: 106px;
-}
 
+}
 .side{
+    display: grid;
+    grid-template-areas:
+    "title"
+    "addNew"
+    'news'
+    "total";
+    grid-template-rows: auto auto 1fr auto;
     width: 405px;
-    height: 100%;
+    height: 90vh;
+    margin-top: 50px;
     border-radius: 20px;
     background: #D9D9D9;
-    padding:0px 10px ;
-    padding-bottom: 20px;
-}
+    padding:0px 10px 10px 10px;
 
+}
 .side h2{
+    grid-area: title;
     text-align: center;
+    height: 20px;
 }
-
 .add {
+    grid-area: addNew;
     width: 100%;
     height: 50px;
     margin-bottom: 12.5px;
@@ -38,7 +45,6 @@ body{
     border-radius: 20px;
     background: #FFF;
 }
-
 .symbolPlus{
     display: flex;
     align-items: center;
@@ -53,9 +59,6 @@ body{
     margin: 0 10px;
     cursor: pointer;
 }
-
-
-
 .box-add{
     z-index: 3;
     position:absolute;
@@ -138,7 +141,6 @@ body{
     background: #D9D9D9;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
-
 .error{
     display:none;
     width: 100%;
@@ -149,13 +151,17 @@ body{
     background: red;
     color: white;
 }
+.boxNewsSpent{
+    grid-area: news;
+    height: 100%;;
+}
 
 .newSpent{
+    grid-area: news;
     display: flex;
     justify-content: end;
     align-items: center;
 }
-
 .divParagraph{
     width: 100%;
     height: 50px;
@@ -172,7 +178,6 @@ body{
     margin-left: 20px;
     color: black;
 }
-
 .newSpent span{
     z-index: 2;
     position:fixed;
@@ -185,20 +190,29 @@ body{
     transition: width 3s,color 1s , background 3s;
     background: white;
 }
-
 .newSpent span:hover{
     width: 405px;
     color: white;
     background: red;
 }
-.material-symbols-outlined {
-    cursor: pointer;
-    font-variation-settings:
-    'FILL' 0,
-    'wght' 400,
-    'GRAD' 0,
-    'opsz' 48
+.totalSpent{
+    grid-area: total;
+    justify-self: end;
+    width: 100%;
+    height: 50px;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    grid-template-columns: 3fr  1fr;
+    border-radius: 0 0 15px 15px;
+    margin: 7.5px 0;
+    color:#1891B8;
+    background: #FFF;
 }
+.totalSpent p{
+    text-align: center;
+}
+
 
 /* código de Income */
 
@@ -208,7 +222,6 @@ body{
     flex-direction: column;
     width: 250px;
     height: auto;
-    padding-bottom: 15px;
     border-radius: 20px;
     border: 1px solid #1891B8;
     background: #FFF;
@@ -246,6 +259,7 @@ body{
     width: 100px;
     padding: 2px;
     margin-top: 10px;
+    margin-bottom: 10px;
     font-weight: 700;
     color:#1891B8;
     border: 1px solid #1891B8;
@@ -259,17 +273,85 @@ body{
     border-radius: 0  0 20px 20px;
     height: 20px;
     margin-top: 5px;
+    margin-bottom: 0;
     text-align: center;
     background: red;
     color: white;
 }
-/*  Active and In-Active*/
+.boxNewsIncome{
+    grid-area: news;
+    height: 100%;;
+}
+.newIncome{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+.divParagraphIncome{
+    width: 100%;
+    height: 50px;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    grid-template-columns: 3fr 1fr 1fr 1fr;
+    margin: 7.5px 0;
+    color:#1891B8;
+    background: #FFF;
+}
+.divParagraphIncome :first-child{
+    text-align: start;
+    margin-left: 20px;
+    color: black;
+}
+.newIncome span{
+    z-index: 2;
+    position:fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: red;
+    height: 50px;
+    width: 67.5px;
+    transition: width 3s,color 1s , background 3s;
+    background: white;
+}
+.newIncome span:hover{
+    width: 405px;
+    color: white;
+    background: red;
+}
+.totalIncome{
+    grid-area: total;
+    justify-self: end;
+    width: 100%;
+    height: 50px;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    grid-template-columns: 3fr 1fr;
+    border-radius: 0 0 15px 15px;
+    margin: 7.5px 0;
+    color:#1891B8;
+    background: #FFF;
+}
+.totalIncome p{
+    text-align: center;
+}
+/*  Active and In-Active */
 .in-active{
     display: none;
 }
-
 .active{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+/* Symbol garbage */
+.material-symbols-outlined {
+    cursor: pointer;
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 48
 }
