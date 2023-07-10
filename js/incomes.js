@@ -78,6 +78,7 @@ const agreeIncome = () => {
         totalIncome.classList.remove('in-active');
 
         sumIncome();
+        showSymbol();
 
         boxAdd.classList.add('in-active');
         income.classList.add('in-active');
@@ -104,6 +105,8 @@ const deleteBottomIncome = (x) => {
     if (ArrayIncome.length == 0) {
         totalIncome.classList.add('in-active');
     }
+
+    showSymbol();
 }
 const sumIncome = () => {
     let costs = ArrayIncome.map(income => Number(income.cost));

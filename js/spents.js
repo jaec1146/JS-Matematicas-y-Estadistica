@@ -43,6 +43,10 @@ function Income(name, cost) {
     this.cost = cost;
 }
 
+/* Sum DOMs */
+const sumSymbol = $('#sumSymbol');
+
+
 //Funciones para eventos Spent
 const addSpentForm = ()=> {
     boxAdd.classList.remove('in-active');
@@ -163,6 +167,7 @@ const agreeSpent = () => {
         totalSpent.classList.remove('in-active');
 
         sumSpent();
+        showSymbol();
 
         boxAdd.classList.add('in-active');
         spent.classList.add('in-active');
@@ -189,12 +194,14 @@ const deleteBottom = (x) => {
     if (ArraySpent.length == 0) {
         totalSpent.classList.add('in-active');
     }
+
+    showSymbol();
 }
 const sumSpent = () => {
     let costs = ArraySpent.map(spent => Number(spent.cost));
     let sum = costs.reduce((a, b) => a + b);
     
-    sumSpentResult.innerText = '$'+sum;
+    sumSpentResult.innerText = '$' + sum;
 }
 
 //Events

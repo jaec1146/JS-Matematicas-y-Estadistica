@@ -337,6 +337,28 @@ body{
 .totalIncome p{
     text-align: center;
 }
+/* Symbols */
+.material-symbols-outlined {
+    cursor: pointer;
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 48
+}
+#sumSymbol{
+    align-self: center;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    width: 75px;
+    height: 75px;
+    color: white;
+    background:#D9D9D9;
+}
+#sumSymbol span{
+    font-size: 50px;
+}
 /*  Active and In-Active */
 .in-active{
     display: none;
@@ -345,13 +367,4 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-}
-/* Symbol garbage */
-.material-symbols-outlined {
-    cursor: pointer;
-    font-variation-settings:
-    'FILL' 0,
-    'wght' 400,
-    'GRAD' 0,
-    'opsz' 48
 }
