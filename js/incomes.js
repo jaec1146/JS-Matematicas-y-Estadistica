@@ -107,12 +107,15 @@ const deleteBottomIncome = (x) => {
     }
 
     showSymbol();
+    sumIncome();
+
 }
 const sumIncome = () => {
     let costs = ArrayIncome.map(income => Number(income.cost));
-    let sum = costs.reduce((a, b) => a + b);
-    
-    sumIncomeResult.innerText = '$'+sum;
+    if (costs.length > 0) {
+        let sum = costs.reduce((a, b) => a + b);
+        sumIncomeResult.innerText = '$' + sum;
+    }
 }
 //Events
 addIncome.addEventListener('click', addIncomeForm);

@@ -44,8 +44,12 @@ function Income(name, cost) {
 }
 
 /* Sum DOMs */
-const sumSymbol = $('#sumSymbol');
-
+const sumSymbol = $('.sumSymbol');
+const total = $('.totalSum');
+const forced = $('.forced');
+const own = $('.own');
+const saving = $('.saving');
+const sumSection = $('#sumSection');
 
 //Funciones para eventos Spent
 const addSpentForm = ()=> {
@@ -104,7 +108,7 @@ const agreeSpent = () => {
         error.style.display = 'block';
         error.innerText = 'El valor debe ser mayor a 0';
         return
-    } else if (select.value == undefined) {
+    } else if (select.value == undefined || select.value == '') {
         error.style.display = 'block';
         error.innerText = 'Seleccione valor de porcentaje';
         return
@@ -165,7 +169,7 @@ const agreeSpent = () => {
 
         /* show label html Total Spent */
         totalSpent.classList.remove('in-active');
-
+        
         sumSpent();
         showSymbol();
 
@@ -196,12 +200,14 @@ const deleteBottom = (x) => {
     }
 
     showSymbol();
+    sumSpent();
 }
 const sumSpent = () => {
     let costs = ArraySpent.map(spent => Number(spent.cost));
-    let sum = costs.reduce((a, b) => a + b);
-    
-    sumSpentResult.innerText = '$' + sum;
+    if (costs.length > 0) {
+        let sum = costs.reduce((a, b) => a + b);
+        sumSpentResult.innerText = '$' + sum;
+    }
 }
 
 //Events
