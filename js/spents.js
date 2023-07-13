@@ -50,6 +50,9 @@ const forced = $('.forced');
 const own = $('.own');
 const saving = $('.saving');
 const sumSection = $('#sumSection');
+const portionId_50 = $('#portion_50');
+const portionId_30 = $('#portion_30');
+const portionId_20 = $('#portion_20');
 
 //Funciones para eventos Spent
 const addSpentForm = ()=> {
@@ -128,6 +131,7 @@ const agreeSpent = () => {
         //Agregar a side spent
         const spentItem = document.createElement('div');
         spentItem.classList.add('newSpent');
+        spentItem.classList.add('scrollBox-inner');
         const divParagraph = document.createElement('div');
         divParagraph.classList.add('divParagraph');
         const titleSpent = document.createElement('p');
@@ -172,6 +176,7 @@ const agreeSpent = () => {
         
         sumSpent();
         showSymbol();
+        calculate();
 
         boxAdd.classList.add('in-active');
         spent.classList.add('in-active');
@@ -197,10 +202,15 @@ const deleteBottom = (x) => {
 
     if (ArraySpent.length == 0) {
         totalSpent.classList.add('in-active');
+        $('#calculate').innerText = 'calculate';
+        sumSymbol.classList.remove('transformCalc');
+        sumSection.classList.add('in-active');
+        sumSection.style.display = 'none';
     }
 
     showSymbol();
     sumSpent();
+    calculate();
 }
 const sumSpent = () => {
     let costs = ArraySpent.map(spent => Number(spent.cost));

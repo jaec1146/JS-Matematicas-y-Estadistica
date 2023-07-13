@@ -49,7 +49,7 @@ const agreeIncome = () => {
         ArrayIncome.push(income0);
         console.log(ArrayIncome);
 
-        //Agregar a side Income
+        //Agree side Income
         const incomeItem = document.createElement('div');
         incomeItem.classList.add('newIncome');
         const divParagraphIncome = document.createElement('div');
@@ -79,6 +79,7 @@ const agreeIncome = () => {
 
         sumIncome();
         showSymbol();
+        calculate();
 
         boxAdd.classList.add('in-active');
         income.classList.add('in-active');
@@ -94,20 +95,23 @@ const outIncomeAdd = () => {
     }
 }
 const deleteBottomIncome = (x) => {
-    console.log(ArrayIncome);
     let element = x.parentNode.firstChild.firstChild.innerText;
     let index = ArrayIncome.map(label => label.name).indexOf(element);
     console.log(index);
-    ArrayIncome[ArrayIncome.splice(index,1)]
-    console.log(ArrayIncome);
+    ArrayIncome[ArrayIncome.splice(index,1)];
     x.parentNode.remove();
 
     if (ArrayIncome.length == 0) {
         totalIncome.classList.add('in-active');
+        $('#calculate').innerText = 'calculate';
+            sumSymbol.classList.remove('transformCalc');
+            sumSection.classList.add('in-active');
+            sumSection.style.display = 'none';
     }
 
     showSymbol();
     sumIncome();
+    calculate();
 
 }
 const sumIncome = () => {
